@@ -1,26 +1,24 @@
 package com.example.kalkulator_mockup;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.kalkulator_mockup.databinding.ActivityMainBinding;
-import com.google.android.material.button.MaterialButton;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
     TextView _tvResult;
     EditText _etFirstNumber;
     EditText _etSecondNumber;
+    Double firstNumber;
+    Double secondNumber;
+    Double result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +53,14 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     public void clickBtnDot(View view) {
+        if(_etFirstNumber.isFocused()) {
+            _etFirstNumber.setText(_etFirstNumber.getText() + ".");
+        }
+        if (_etSecondNumber.isFocused()) {
+            _etSecondNumber.setText(_etSecondNumber.getText() + ".");
+        }
     }
 
     @SuppressLint("SetTextI18n")
@@ -174,22 +179,117 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void clickBtnPercent(View view) {
+        String inputFirstNumber = _etFirstNumber.getText().toString().trim();
+        String inputSecondNumber = _etSecondNumber.getText().toString().trim();
+        boolean isEmptyFields = false;
+
+        if (TextUtils.isEmpty(inputFirstNumber)) {
+            isEmptyFields = true;
+            _etFirstNumber.setError("Field ini tidak boleh kosong");
+        }
+        if (TextUtils.isEmpty(inputSecondNumber)) {
+            isEmptyFields = true;
+            _etSecondNumber.setError("Field ini tidak boleh kosong");
+        }
+        if (!isEmptyFields) {
+            firstNumber = Double.parseDouble(_etFirstNumber.getText().toString());
+            secondNumber = Double.parseDouble(_etSecondNumber.getText().toString());
+            result = (firstNumber / 100) * secondNumber;
+            _tvResult.setText(String.valueOf(result));
+        }
     }
 
     public void clickBtnKali(View view) {
+        String inputFirstNumber = _etFirstNumber.getText().toString().trim();
+        String inputSecondNumber = _etSecondNumber.getText().toString().trim();
+        boolean isEmptyFields = false;
+
+        if (TextUtils.isEmpty(inputFirstNumber)) {
+            isEmptyFields = true;
+            _etFirstNumber.setError("Field ini tidak boleh kosong");
+        }
+        if (TextUtils.isEmpty(inputSecondNumber)) {
+            isEmptyFields = true;
+            _etSecondNumber.setError("Field ini tidak boleh kosong");
+        }
+        if (!isEmptyFields) {
+            firstNumber = Double.parseDouble(_etFirstNumber.getText().toString());
+            secondNumber = Double.parseDouble(_etSecondNumber.getText().toString());
+            result = firstNumber * secondNumber;
+            _tvResult.setText(String.valueOf(result));
+        }
     }
 
     public void clickBtnMinus(View view) {
+        String inputFirstNumber = _etFirstNumber.getText().toString().trim();
+        String inputSecondNumber = _etSecondNumber.getText().toString().trim();
+        boolean isEmptyFields = false;
+
+        if (TextUtils.isEmpty(inputFirstNumber)) {
+            isEmptyFields = true;
+            _etFirstNumber.setError("Field ini tidak boleh kosong");
+        }
+        if (TextUtils.isEmpty(inputSecondNumber)) {
+            isEmptyFields = true;
+            _etSecondNumber.setError("Field ini tidak boleh kosong");
+        }
+        if (!isEmptyFields) {
+            firstNumber = Double.parseDouble(_etFirstNumber.getText().toString());
+            secondNumber = Double.parseDouble(_etSecondNumber.getText().toString());
+            result = firstNumber - secondNumber;
+            _tvResult.setText(String.valueOf(result));
+        }
     }
 
     public void clickBtnPlus(View view) {
+        String inputFirstNumber = _etFirstNumber.getText().toString().trim();
+        String inputSecondNumber = _etSecondNumber.getText().toString().trim();
+        boolean isEmptyFields = false;
+
+        if (TextUtils.isEmpty(inputFirstNumber)) {
+            isEmptyFields = true;
+            _etFirstNumber.setError("Field ini tidak boleh kosong");
+        }
+        if (TextUtils.isEmpty(inputSecondNumber)) {
+            isEmptyFields = true;
+            _etSecondNumber.setError("Field ini tidak boleh kosong");
+        }
+        if (!isEmptyFields) {
+            firstNumber = Double.parseDouble(_etFirstNumber.getText().toString());
+            secondNumber = Double.parseDouble(_etSecondNumber.getText().toString());
+            result = firstNumber + secondNumber;
+            _tvResult.setText(String.valueOf(result));
+        }
+    }
+
+    public void clickBtnBagi(View view) {
+        String inputFirstNumber = _etFirstNumber.getText().toString().trim();
+        String inputSecondNumber = _etSecondNumber.getText().toString().trim();
+        boolean isEmptyFields = false;
+
+        if (TextUtils.isEmpty(inputFirstNumber)) {
+            isEmptyFields = true;
+            _etFirstNumber.setError("Field ini tidak boleh kosong");
+        }
+        if (TextUtils.isEmpty(inputSecondNumber)) {
+            isEmptyFields = true;
+            _etSecondNumber.setError("Field ini tidak boleh kosong");
+        }
+        if (!isEmptyFields) {
+            firstNumber = Double.parseDouble(_etFirstNumber.getText().toString());
+            secondNumber = Double.parseDouble(_etSecondNumber.getText().toString());
+            result = firstNumber / secondNumber;
+            _tvResult.setText(String.valueOf(result));
+        }
     }
 
     public void clickBtnEquals(View view) {
+
     }
 
     public void clickLayout(View view) {
         InputMethodManager imm =(InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
+
 }
