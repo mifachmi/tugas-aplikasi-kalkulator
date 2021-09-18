@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:onClick="clickLayout"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/llSatu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/aplikasi_kalkulator"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:layout_marginBottom="16dp"/>
+
+        <EditText
+            android:id="@+id/etAngkaPertama"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:hint="@string/input_angka_pertama"
+            android:inputType="number"/>
+
+        <EditText
+            android:id="@+id/etAngkaKedua"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/input_angka_kedua"
+            android:inputType="number"/>
+
+        <TextView
+            android:id="@+id/tvResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="@string/result"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llDua"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints"
+        android:gravity="center_horizontal"
+        app:layout_constraintTop_toBottomOf="@id/llSatu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:orientation="horizontal">
+
+        <GridLayout
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:columnCount="4"
+            android:rowCount="5"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:ignore="MissingConstraints,UselessParent"
+            tools:layout_editor_absoluteX="16dp">
+
+            <Button
+                android:id="@+id/btnC"
+                style="@style/backgroundButton"
+                android:textColor="@color/ungu"
+                android:onClick="clickBtnC"
+                android:text="@string/c"
+                tools:ignore="UsingOnClickInXml" />
+
+            <Button
+                android:id="@+id/btnDel"
+                android:scaleType="fitCenter"
+                style="@style/backgroundButton"
+                android:textColor="@color/ungu"
+                android:layout_marginStart="16dp"
+                android:onClick="clickBtnDel"
+                android:text="@string/del"
+                tools:ignore="UsingOnClickInXml" />
+
+            <Button
+                android:id="@+id/btnPercent"
+                style="@style/backgroundButton"
+                android:textColor="@color/ungu"
+                android:layout_marginStart="16dp"
+                android:onClick="clickBtnPercent"
+                android:text="@string/persen" />
+
+            <Button
+                android:id="@+id/btnBagi"
+                style="@style/backgroundButton"
+                android:textColor="@color/ungu"
+                android:layout_marginStart="16dp"
+                android:text="@string/bagi" />
+
+            <Button
+                android:id="@+id/btnSeven"
+                style="@style/backgroundButton"
+                android:onClick="clickBtnSeven"
+                android:text="@string/_7" />
+
+            <Button
+                android:id="@+id/btnEight"
+                android:onClick="clickBtnEight"
+                android:outlineSpotShadowColor="@color/white"
+                style="@style/backgroundButton"
+                android:layout_marginStart="16dp"
+                android:text="@string/_8"
+                tools:targetApi="p" />
+
+            <Button
+                android:id="@+id/btnNine"
+                android:onClick="clickBtnNine"
+                style="@style/backgroundButton"
+                android:layout_marginStart="16dp"
+                android:text="@string/_9" />
+
+            <Button
+                android:id="@+id/btnMultiple"
+                android:onClick="clickBtnKali"
+                style="@style/backgroundButton"
+                android:textColor="@color/ungu"
+                android:layout_marginStart="16dp"
+                android:text="@string/kali" />
+
+            <Button
+                android:id="@+id/btnFour"
+                android:onClick="clickBtnFour"
+                style="@style/backgroundButton"
+                android:text="@string/_4" />
+
+            <Button
+                android:id="@+id/btnFive"
+                android:onClick="clickBtnFive"
+                style="@style/backgroundButton"
+                android:layout_marginStart="16dp"
+                android:text="@string/_5" />
+
+            <Button
+                android:id="@+id/btnSix"
+                android:onClick="clickBtnSix"
+                style="@style/backgroundButton"
+                android:layout_marginStart="16dp"
+                android:text="@string/_6" />
+
+            <Button
+                android:id="@+id/btnMinus"
+                android:onClick="clickBtnMinus"
+                style="@style/backgroundButton"
+                android:textColor="@color/ungu"
+                android:layout_marginStart="16dp"
+                android:text="@string/kurang" />
+
+            <Button
+                android:id="@+id/btnOne"
+                android:onClick="clickBtnOne"
+                style="@style/backgroundButton"
+                android:text="@string/_1" />
+
+            <Button
+                android:id="@+id/btnTwo"
+                android:onClick="clickBtnTwo"
+                style="@style/backgroundButton"
+                android:layout_marginStart="16dp"
+                android:text="@string/_2" />
+
+            <Button
+                android:id="@+id/btnThree"
+                android:onClick="clickBtnThree"
+                style="@style/backgroundButton"
+                android:layout_marginStart="16dp"
+                android:text="@string/_3" />
+
+            <Button
+                android:id="@+id/btnPlus"
+                android:onClick="clickBtnPlus"
+                style="@style/backgroundButton"
+                android:textColor="@color/ungu"
+                android:layout_marginStart="16dp"
+                android:text="@string/tambah" />
+
+            <Button
+                android:id="@+id/btnZero"
+                android:onClick="clickBtnZero"
+                style="@style/backgroundButton"
+                android:text="@string/_0" />
+
+            <Button
+                android:id="@+id/btnZeroThree"
+                android:onClick="clickBtnZeroThree"
+                style="@style/backgroundButton"
+                android:layout_marginStart="16dp"
+                android:text="@string/_000" />
+
+            <Button
+                android:id="@+id/btnDot"
+                android:onClick="clickBtnDot"
+                style="@style/backgroundButton"
+                android:layout_marginStart="16dp"
+                android:text="@string/dot" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnEquals"
+                android:onClick="clickBtnEquals"
+                android:layout_height="75dp"
+                android:layout_width="75dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="6dp"
+                android:backgroundTint="@color/ungu"
+                android:text="@string/equal"
+                android:textColor="@color/black"
+                android:textSize="36sp"
+                app:cornerRadius="50dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:insetLeft="0dp"
+                android:insetRight="0dp"/>
+
+        </GridLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
